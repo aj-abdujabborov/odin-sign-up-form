@@ -1,2 +1,2 @@
-# odin-sign-up-form
-Sign-Up Form from The Odin Project
+# Sign up form [project](https://www.theodinproject.com/lessons/node-path-intermediate-html-and-css-sign-up-form) from *The Odin Project*
+See live version of website [here](https://aj-abdujabborov.github.io/odin-sign-up-form/)
