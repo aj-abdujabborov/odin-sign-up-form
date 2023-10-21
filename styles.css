@@ -1,0 +1,94 @@
+@font-face {
+    font-family: 'Sono';
+    src: url('./fonts/sono.woff2') format("woff2") tech('variations');
+    src: url('./fonts/sono.woff2') format("woff2-variations");
+    font-weight: 200 800;
+    font-style: normal;   
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* Appearance */
+h1 {    
+    font-weight: 200;
+    text-align: center;
+    font-size: 3rem;
+}
+
+a {
+    color: inherit;   
+}
+
+/* Other stuff */
+
+body {
+    font-family: 'Sono', Verdana, Tahoma, sans-serif;
+    font-variation-settings: 'MONO' 1;
+
+    margin: 0;
+    padding: 0;
+
+    height: 100vh;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+div.image {
+    background-image: url("./images/blake-cheek-CPwYhs2ww24-unsplash.jpg");
+    background-color: #cccccc;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    height: 100%;
+
+    flex-grow: 1;
+    flex-basis: 45%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+div.texts {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+
+    flex-grow: 1;
+    flex-basis: 55%;
+}
+
+div.texts > div.intro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Image Section */
+.title {
+    flex-grow: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    bottom: 60%;
+}
+
+.title > img.icon {
+    height: 4rem;
+    aspect-ratio: 1;
+}
+
+.credit {
+    font-style: italic;
+    color: white;
+    text-align: center;
+}
