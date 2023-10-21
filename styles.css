@@ -10,26 +10,20 @@
     box-sizing: border-box;
 }
 
-/* Appearance */
-h1 {    
-    font-weight: 200;
-    text-align: center;
-    font-size: 3rem;
-}
-
-a {
-    color: inherit;   
-}
-
-/* Other stuff */
-
 body {
     font-family: 'Sono', Verdana, Tahoma, sans-serif;
     font-variation-settings: 'MONO' 1;
+}
 
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Big containers */
+body {
     margin: 0;
     padding: 0;
-
     height: 100vh;
 
     display: flex;
@@ -38,16 +32,15 @@ body {
 }
 
 div.image {
+    height: 100%;
+    flex-grow: 1;
+    flex-basis: 45%;
+
     background-image: url("./images/blake-cheek-CPwYhs2ww24-unsplash.jpg");
     background-color: #cccccc;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-
-    height: 100%;
-
-    flex-grow: 1;
-    flex-basis: 45%;
 
     display: flex;
     flex-direction: column;
@@ -55,40 +48,183 @@ div.image {
 }
 
 div.texts {
+    height: 100%;
+    flex-grow: 1;
+    flex-basis: 55%;
+
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: center;
-
-    flex-grow: 1;
-    flex-basis: 55%;
-}
-
-div.texts > div.intro {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    gap: 30px;
 }
 
 /* Image Section */
 .title {
-    flex-grow: 0;
+    position: relative;
+    bottom: 60%;
+    margin: 0 30px;
 
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
+    /* to center title with the icon */
+}
 
-    position: relative;
-    bottom: 60%;
+.title > h1 {
+    font-weight: 200;
+    font-size: 3rem;
+    margin: 0;
 }
 
 .title > img.icon {
     height: 4rem;
-    aspect-ratio: 1;
 }
 
 .credit {
     font-style: italic;
+    font-size: 0.5em;
     color: white;
     text-align: center;
+}
+
+/* Texts div formatting */
+.texts {
+    padding: 20px;
+}
+
+.texts > div, .texts > form {
+    width: min(95%, 600px);
+}
+
+/* Intro */
+.intro > p {
+    font-size: 1.5em;
+    font-weight: 350;
+}
+
+/* Form Layout */
+form > h2 {
+    display: inline-block;
+    /* so that background spans only the text so that we get the full spectrum */
+
+    font-size: 1.5em;
+    font-weight: 600;
+
+    background-image: #2e5eb1;
+    background-image: linear-gradient(70deg, #b83537 0%, #af8b30 50%, #2e5eb1 100%);
+    background-clip: text;
+    background-size: 100%;
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+form ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+form li {
+    width: min(45%, 300px);
+}
+
+form input {
+    width: 95%;
+}
+
+form ul, form li {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+form label {
+    margin-bottom: 3px;
+}
+
+form label, form input {
+    display: block;
+}
+
+/* Form appearance */
+form label {
+    text-transform: uppercase;
+    font-size: 1em;
+}
+
+form input {
+    outline: none;
+    border-style: solid;
+    border-color: transparent transparent #2e5eb1 transparent;
+    border-width: 1.5px;
+
+    font-family: inherit;
+    font-size: 1.25em;
+
+    transition-duration: 0.2s;
+}
+
+form label:has(+ input:required)::after {
+    content: "*";
+}
+
+form input:not(:placeholder-shown):invalid {
+    border-color: transparent transparent red transparent;
+    transition-duration: 0.2s;
+}
+
+form input:hover {
+    border-color: transparent transparent #cccccc transparent;
+    transition-duration: 0.2s;
+}
+
+form input:focus {
+    border-color: #2e5eb1;
+    transition-duration: 0.2s;
+}
+
+/* div-button */
+.div-button > button {
+    border: none;
+    background-color: #2e5eb1;
+    color: white;
+    
+    font-family: inherit;
+    font-size: inherit;
+    text-transform: uppercase;
+
+    margin-top: 24px; /* margin of p in the intro section */
+    padding: 10px 20px;
+    border-radius: 5px;    
+
+    transition-duration: 0.2s;
+}
+
+.div-button > button:hover {
+    background-color: #af8b30;
+    transition-duration: 0.2s;
+}
+
+.div-button > button:active {
+    background-color: #b83537;
+    transition-duration: 0.05s;
+}
+
+.div-button > p > a {
+    color: #2e5eb1;
+    transition-duration: 0.2s;
+}
+
+.div-button > p > a:hover {
+    color: #af8b30;
+    transition-duration: 0.2s;
+}
+
+.div-button > p > a:active {
+    color: #b83537;
+    transition-duration: 0.05s;
 }
