@@ -135,15 +135,18 @@ form ul {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 15px;
+    row-gap: 15px;
+    column-gap: 25px;
 }
 
 form li {
-    width: min(45%, 300px);
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 200px;
 }
 
 form input {
-    width: 95%;
+    width: 100%;
 }
 
 form ul, form li {
