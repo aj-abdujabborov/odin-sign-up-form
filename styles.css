@@ -159,7 +159,7 @@ form label {
     margin-bottom: 3px;
 }
 
-form label, form input {
+form label, form input, form span {
     display: block;
 }
 
@@ -185,18 +185,14 @@ form label:has(+ input:required)::after {
     content: "*";
 }
 
-form label:has(+ input:invalid:not(:focus):not(:placeholder-shown)) {
+form label:has(+ input + span:not(:empty)) {
     color: var(--error-color);
     transition-duration: 0.2s;
 }
 
-form label:has(+ input:invalid:not(:focus):not(:placeholder-shown))::after {
-    content: " invalid";
-    text-transform: lowercase;
-    transition-duration: 0.2s;
-}
+form input:has(+ span:not(:empty)) {
+    --border-focus-color: var(--error-color);
 
-form input:not(:placeholder-shown):invalid {
     border-color: transparent transparent var(--error-color) transparent;
     transition-duration: 0.2s;
 }
@@ -206,9 +202,19 @@ form input:hover {
     transition-duration: 0.2s;
 }
 
-form input:focus {
-    border-color: var(--secondary-color);
+form#signup input:focus {
+    border-color: var(--border-focus-color, --secondary-color);
     transition-duration: 0.2s;
+}
+
+form input + span {
+    background-color: var(--error-color);
+    font-size: 0.8em;
+    color: white;
+}
+
+form input + span.active {
+    padding: 0.4em;
 }
 
 /* div-button */

@@ -23,12 +23,13 @@
             <p>Are you unhappy with your life? Take a free tour into the woods with us!</p>
             <p>Do not throw away your shot!</p>
         </div>
-        <form id="signup" action="post">
+        <form id="signup" action="" method="post" novalidate>
             <h2>Sign up now!</h2>
             <ul>
                 <li>
                     <label for="first-name">First Name</label>
-                    <input type="text" id="first-name" name="first-name" placeholder=" " required>
+                    <input type="text" id="first-name" name="first-name" placeholder=" " minlength="2" required>
+                    <span class="error"></span>
                 </li>
                 <li>
                     <label for="last-name">Last Name</label>
@@ -36,19 +37,23 @@
                 </li>
                 <li>
                     <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder=" ">
+                    <input type="email" id="email" name="email" placeholder=" " required>
+                    <span class="error"></span>
                 </li>
                 <li>
                     <label for="tel">Phone Number</label>
                     <input type="tel" id="tel" name="phone" placeholder=" ">
+                    <span class="error"></span>
                 </li>
                 <li>
                     <label for="pwd">Password</label>
-                    <input type="password" id="pwd" name="password" placeholder=" " required>
+                    <input type="password" id="pwd" name="password" placeholder=" " minlength="8" required>
+                    <span class="error"></span>
                 </li>
                 <li>
                     <label for="confirm-pwd">Confirm Password</label>
                     <input type="password" id="confirm-pwd" name="confirm-password" placeholder=" " required>
+                    <span class="error"></span>
                 </li>
             </ul>
         </form>
