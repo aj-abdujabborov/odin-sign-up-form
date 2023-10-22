@@ -58,7 +58,6 @@ div.image {
 }
 
 div.texts {
-    height: 100%;
     flex-grow: 1;
     flex-basis: 55%;
 
