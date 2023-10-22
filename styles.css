@@ -20,6 +20,16 @@ a {
     text-decoration: none;
 }
 
+:root {
+    --text-color: #2a3536;
+    --secondary-color: #615921;
+    --tertiary-color: #363c30;
+    --faint-color: #c6babc;
+    --error-color: rgb(217, 13, 13);
+
+    color: var(--text-color);
+}
+
 /* Big containers */
 body {
     margin: 0;
@@ -37,7 +47,7 @@ div.image {
     flex-basis: 45%;
 
     background-image: url("./images/blake-cheek-CPwYhs2ww24-unsplash.jpg");
-    background-color: #cccccc;
+    background-color: #ebe2e5;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -112,8 +122,8 @@ form > h2 {
     font-size: 1.5em;
     font-weight: 600;
 
-    background-image: #2e5eb1;
-    background-image: linear-gradient(70deg, #b83537 0%, #af8b30 50%, #2e5eb1 100%);
+    background-image: var(--secondary-color);
+    background-image: linear-gradient(70deg, var(--secondary-color) 0%, var(--tertiary-color) 100%);
     background-clip: text;
     background-size: 100%;
 
@@ -159,7 +169,7 @@ form label {
 form input {
     outline: none;
     border-style: solid;
-    border-color: transparent transparent #2e5eb1 transparent;
+    border-color: transparent transparent var(--secondary-color) transparent;
     border-width: 1.5px;
 
     font-family: inherit;
@@ -172,25 +182,36 @@ form label:has(+ input:required)::after {
     content: "*";
 }
 
+form label:has(+ input:invalid:not(:focus):not(:placeholder-shown)) {
+    color: var(--error-color);
+    transition-duration: 0.2s;
+}
+
+form label:has(+ input:invalid:not(:focus):not(:placeholder-shown))::after {
+    content: " invalid";
+    text-transform: lowercase;
+    transition-duration: 0.2s;
+}
+
 form input:not(:placeholder-shown):invalid {
-    border-color: transparent transparent red transparent;
+    border-color: transparent transparent var(--error-color) transparent;
     transition-duration: 0.2s;
 }
 
 form input:hover {
-    border-color: transparent transparent #cccccc transparent;
+    border-color: transparent transparent var(--faint-color) transparent;
     transition-duration: 0.2s;
 }
 
 form input:focus {
-    border-color: #2e5eb1;
+    border-color: var(--secondary-color);
     transition-duration: 0.2s;
 }
 
 /* div-button */
 .div-button > button {
     border: none;
-    background-color: #2e5eb1;
+    background-color: var(--secondary-color);
     color: white;
     
     font-family: inherit;
@@ -199,32 +220,32 @@ form input:focus {
 
     margin-top: 24px; /* margin of p in the intro section */
     padding: 10px 20px;
-    border-radius: 5px;    
 
     transition-duration: 0.2s;
 }
 
 .div-button > button:hover {
-    background-color: #af8b30;
+    background-color: var(--tertiary-color);
     transition-duration: 0.2s;
 }
 
 .div-button > button:active {
-    background-color: #b83537;
+    background-color: var(--faint-color);
+    color: black;
     transition-duration: 0.05s;
 }
 
 .div-button > p > a {
-    color: #2e5eb1;
+    color: var(--secondary-color);
     transition-duration: 0.2s;
 }
 
 .div-button > p > a:hover {
-    color: #af8b30;
+    color: var(--tertiary-color);
     transition-duration: 0.2s;
 }
 
 .div-button > p > a:active {
-    color: #b83537;
+    color: var(--faint-color);
     transition-duration: 0.05s;
 }
