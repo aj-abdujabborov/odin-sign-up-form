@@ -61,7 +61,7 @@ function handleEmailError(event) {
         emailError.className = "error active";
         event.preventDefault();
         if (email.validity.typeMismatch) {
-            emailError.textContent = "Emails are of form name@example.com";   
+            emailError.textContent = "Email required e.g. name@example.com";   
         }
         else if (email.validity.valueMissing) {
             emailError.textContent = "Email is required";
